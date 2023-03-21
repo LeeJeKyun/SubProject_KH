@@ -2,9 +2,169 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" href="favicon.ico">
+<title>로그인</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	// id 저장 
+	// local 스토리지 사용
+	$("input[name~='chk']").change(function() {
+	
+		 var $idStr = $("#id").val()
+		 
+		 if( $("input[name~='chk']").is(":checked") == true ) {
+			 localStorage.removeItem("id")
+			 localStorage.setItem( "id", $idStr ) 
+		 }
+	})
+
+
+	$("input[name~='id']").val( localStorage.id )
+	
+})
+</script>
+<style type="text/css">
+#logWrap{
+	margin: 0 auto;
+	width: 300px;
+}
+.content{
+	margin-bottom: 5px;
+	font-weight: bold;
+	display: block;
+	
+}
+.info{
+	font-size: 0.6em;
+	font-weight: bold;
+}
+.contentWrap{
+	display: block;
+}
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
+	font-weight: bold;
+}
+input{
+	width: 295px;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+.errmsg{
+	display: block;
+	color: red;
+	font-size: 0.8em;
+	margin-bottom: 40px;
+	height: 17px;
+}
+.contentDiv{
+	position: relative;
+}
+#chkbox{
+	width: 15px;
+	height: 15px;
+	margin: 0;
+}
+label{
+	position: absolute;
+	top: 70px;
+	left: 230px;
+	font-size: 0.8em;
+}
+a{
+	text-decoration: underline;
+	color: blue;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.link{
+	margin-bottom: 20px;
+}
+#btnLog{
+	width: 295px;
+	height: 40px;
+	background-color: #3999E9;
+	border: none;
+	color: white;
+	font-weight: bold;
+	font-size: 1.0em;
+	border-radius: 5px;
+}
+#siteInfo{
+	position: relative;
+	height: 75px;
+}
+#bottom{
+	text-align: center;
+}
+#law{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 75px;
+	left: 50px;
+}
+#plaw{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 75px;
+	left: 140px;
+}
+#pwmsg{
+	margin-bottom: 20px;
+}
+</style>
 </head>
 <body>
+<div id="logWrap">
+
+	<h1>KH 커뮤니티</h1>
+	<form action="" method="get">
+	<div class="contentDiv">
+	
+<!-- 	id 입력창 -->
+		<span class="content">아이디</span>
+		<span class="contentWrap">
+			<input type="text" id="id" name="id">
+		</span>
+		<label for='chkbox'><input type="checkbox" id="chkbox" name="chk">   id저장</label>
+		<span class="errmsg" id="idmsg"></span>
+	</div>
+	
+<!-- 	비밀번호 입력창 -->
+	<span class="content">비밀번호</span>
+	<span class="contentWrap">
+		<input type="password" id="pw" name="pw"> 
+	</span>
+	<span class="errmsg" id="pwmsg"></span>
+
+	<div class="link">
+		<span><a href="">아이디 찾기</a></span>
+		<span><a href="">비밀번호 찾기</a></span>
+		<span><a href="">회원가입</a></span>
+	</div>
+	
+	<button id="btnLog">Log in</button>
+</form>
+
+	<div id="siteInfo">
+		<span id="law"><a href="">이용약관</a></span>
+		<span id="plaw"><a href="">개인정보처리방침</a></span>
+	</div>
+		
+	<div id="bottom">
+		<h6>KH351 Copyright by Sub-Project</h6>
+	</div>
+</div>
+
+
 
 </body>
 </html>
