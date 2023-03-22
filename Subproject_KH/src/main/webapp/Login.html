@@ -8,6 +8,20 @@
 <script type="text/javascript">
 $(function() {
 	
+	$("form").submit(function() {
+		
+		if($("#id").val() == '' || $("#pw").val() == '') {
+			alert("아이디 또는 비밀번호를 입력하지 않았습니다.")
+			return false
+		}
+		
+	})
+	
+	$("#btnLog").mouseover(function() {
+		
+		$("#btnLog").css("cursor","pointer")
+	})
+	
 	// id 저장 
 	// local 스토리지 사용
 	$("input[name~='chk']").change(function() {
@@ -23,15 +37,55 @@ $(function() {
 
 	$("input[name~='id']").val( localStorage.id )
 	
+	// id 미입력시 에러 문구 출력
+	$("#id").blur(function() {
+		if( $("#id").val() == '' ) {
+			$("#idmsg").html("아이디를 입력해주세요")
+		}
+	})
+	
+	$("#pw").focus(function() {
+		
+		$("#pwmsg").html("")
+		
+		if( $("#id").val() == '' ) {
+			$("#idmsg").html("아이디를 입력해주세요")
+		}
+	})
+	
+	$("#pw").blur(function() {
+	
+		if($("#pw").val() == '') {
+			$("#pwmsg").html("비밀번호를 입력해주세요")
+		}
+		
+	})
+	
+	
+	// 에러 메시지 초기화
+	$("#id").focus(function() {
+		$("#idmsg").html("")
+	})
+	
+	$("#pw").focus(function() {
+		$("#pwmgs").html("")
+	})
+	
 })
 </script>
 <style type="text/css">
+@font-face {
+	font-family: 'NotoSansKR';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
+}
+body { font-family: 'NotoSansKR', sans-serif; }
 #logWrap{
 	margin: 0 auto;
 	width: 300px;
 }
 .content{
-	margin-bottom: 5px;
 	font-weight: bold;
 	display: block;
 	
@@ -71,7 +125,7 @@ input{
 }
 label{
 	position: absolute;
-	top: 70px;
+	top: 75px;
 	left: 230px;
 	font-size: 0.8em;
 }
@@ -83,6 +137,7 @@ a{
 }
 .link{
 	margin-bottom: 20px;
+	text-align: center;
 }
 #btnLog{
 	width: 295px;
@@ -134,7 +189,7 @@ a{
 		<span class="contentWrap">
 			<input type="text" id="id" name="id">
 		</span>
-		<label for='chkbox'><input type="checkbox" id="chkbox" name="chk">   id저장</label>
+		<label for='chkbox'><input type="checkbox" id="chkbox" name="chk">   id 저장</label>
 		<span class="errmsg" id="idmsg"></span>
 	</div>
 	
@@ -146,9 +201,9 @@ a{
 	<span class="errmsg" id="pwmsg"></span>
 
 	<div class="link">
-		<span><a href="">아이디 찾기</a></span>
+		<span><a href="FindId.html">아이디 찾기</a></span>
 		<span><a href="">비밀번호 찾기</a></span>
-		<span><a href="">회원가입</a></span>
+		<span><a href="Join.html">회원가입</a></span>
 	</div>
 	
 	<button id="btnLog">Log in</button>

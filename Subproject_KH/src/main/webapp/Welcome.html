@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.ico">
+<title>Welcome</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	
+	
+	
+})
+function move() {
+	window.location.href = 'Login.html'
+}
+</script>
+<style type="text/css">
+@font-face {
+	font-family: 'NotoSansKR';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
+}
+body { font-family: 'NotoSansKR', sans-serif; }
+#welWrap{
+	margin: 0 auto;
+	width: 500px;
+}
+h1{
+	text-align: center;
+	margin-bottom: 150px;
+}
+.imgWrap {
+	width: 60px;
+	height: 60px;
+	margin: 0 auto;
+	
+}
+img{
+	width: 100%;
+}
+#sentence{
+	font-size: 2.5em;
+	font-weight: bold;
+	display: block;
+	width: 500px;
+	margin: 0 auto;
+	padding-top: 50px;
+	text-align: center;
+}
+#btnmove{
+	width: 295px;
+	height: 40px;
+	background-color: #3999E9;
+	border: none;
+	color: white;
+	font-weight: bold;
+	font-size: 1.0em;
+	border-radius: 5px;
+}
+label{
+	display: block;
+	height: 100px;
+	padding-top : 50px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+#siteInfo{
+	position: relative;
+	height: 75px;
+	margin: 0 auto;
+}
+#law{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 75px;
+	left: 150px;
+}
+#plaw{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 75px;
+	left: 240px;
+}
+#bottom{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="welWrap">
+	<h1>KH 커뮤니티</h1>
+	<div class="imgWrap" >
+		<img alt="img" src="../kh/resources/img/chk.png" >
+	</div>
+	<span id="sentence">당신의 활약을 기대할게요!!</span>
+		<label>
+			<button type=button id="btnmove" onclick="location.href='Login.html'">Log in 페이지 이동하기</button>
+		</label>
+	<div id="siteInfo">
+		<span id="law"><a href="">이용약관</a></span>
+		<span id="plaw"><a href="">개인정보처리방침</a></span>
+	</div>
+		
+	<div id="bottom">
+		<h6>KH351 Copyright by Sub-Project</h6>
+		
+	</div>
+</div>
+
+
+</body>
+</html>

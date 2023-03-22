@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디 찾기</title>
+<link rel="icon" href="favicon.ico">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	// 발송 버튼 누르면
+	$("form").submit(function() {
+		if ( $("#name").val() == '' ) {
+			$("#namemsg").html("이름을 입력해주세요")
+			return false
+		}
+		if ( $("#mail").val() == '' ) {
+			$("#mailmsg").html("가입하신 메일을 입력해주세요")
+			return false
+		}
+	})
+	
+	$("#btnCancel").click(function() {
+		$("#namemsg").html("")
+		$("#mailmsg").html("")
+	})
+	
+	
+	// 이름 포커스
+	$("#name").focus()
+	
+	// 이름 안쓰면 에러 메시지 출력
+	$("#name").blur(function() {
+		if ( $("#name").val() == '' ) {
+			$("#namemsg").html("이름을 입력해주세요")
+		}
+	})
+	
+	// 메일 포커스 됐을 때
+	$("#mail").focus(function() {
+		if ( $("#name").val() == '' ) {
+			$("#namemsg").html("이름을 입력해주세요")
+		}
+	})
+	
+	$("#mail").blur(function() {
+		if ( $("#name").val() == '' ) {
+			$("#namemsg").html("이름을 입력해주세요")
+		}
+		if ( $("#mail").val() == '' ) {
+			$("#mailmsg").html("가입하신 메일을 입력해주세요")
+		}
+	})
+	
+	$("#btnCancel").mouseover(function() {
+		$("#btnCancel").css("cursor","pointer")
+	})
+	
+	$("#btnSend").mouseover(function() {
+		$("#btnSend").css("cursor","pointer")
+	})
+	
+	$("#name").focus(function() {
+		$("#namemsg").html("")
+	})
+	
+	$("#mail").focus(function() {
+		$("#mailmsg").html("")
+	})
+	
+	
+})
+
+</script>
+<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<style type="text/css">
+@font-face {
+	font-family: 'NotoSansKR';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
+}
+body { font-family: 'NotoSansKR', sans-serif; }
+
+#idWrap{
+	margin: 0 auto;
+	text-align: center;
+}
+.infoMsg{
+	width: 500px;
+	font-weight: bold;
+}
+#head{
+	width: 500px;
+	margin: 0 auto;
+}
+.content{
+	margin-bottom: 5px;
+	font-weight: bold;
+	display: block;
+	text-align: left;
+	
+}
+.contentWrap{
+	display: block;
+}
+input{
+	width: 295px;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+#middle{
+	width: 300px;
+	margin: 0 auto;
+}
+h1{
+	margin-bottom: 50px;
+}
+.infoMsg span{
+	display: block;
+	padding-bottom: 10px;
+}
+.infoMsg:nth-child(2) {
+	padding-bottom: 30px;
+}
+.errmsg{
+	display: block;
+	color: red;
+	font-size: 0.8em;
+	margin-bottom: 15px;
+	height: 17px;
+	text-align: left;
+}
+#bottom{
+	width: 300px;
+	height: 50px;
+	margin: 0 auto;
+	position: relative;
+}
+button{
+	width: 100px;
+	height: 40px;
+	background-color: #3999E9;
+	border: none;
+	color: white;
+	font-size: 1.0em;
+	border-radius: 5px;
+	font-family: 'NotoSansKR-Bold';
+	font-weight: bold;
+}
+#btnCancel{
+	position: absolute;
+	left: 30px;
+	background: gray;
+}
+#btnSend{
+	position: absolute;
+	right: 30px;
+}
+#law{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 45px;
+	left: 55px;
+}
+#plaw{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 45px;
+	left: 145px;
+}
+#siteInfo{
+	position: relative;
+	height: 45px;
+	width: 300px;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<form action="" method="get">
+<div id="idWrap">
+
+
+	<div id="head">
+		<h1>KH 커뮤니티</h1>
+		<div class="infoMsg">
+			<span>가입 하신 아이디는 가입 시 등록한 이메일 주소로 보내드립니다</span>
+			<span>작성 하신 후 '발송' 버튼을 눌러주세요</span>
+		</div>
+	</div>
+	
+	<div id="middle">
+	
+		<span class="content">이름</span>
+		<span class="contentWrap">
+			<input type="text" id="name" name="name">
+		</span>
+		<span class="errmsg" id="namemsg"></span>
+	
+		<span class="content">가입 시 등록한 이메일 주소</span>
+		<span class="contentWrap">
+			<input type="text" id="mail" name="mail">
+		</span>
+		<span class="errmsg" id="mailmsg"></span>
+	</div>
+	
+	<div id="bottom">
+		<button id="btnCancel" name="cancel" >취소</button>
+		<button id="btnSend" name="send">발송</button>
+	</div>
+
+	<div id="siteInfo">
+		<span id="law"><a href="">이용약관</a></span>
+		<span id="plaw"><a href="">개인정보처리방침</a></span>
+	</div>
+	
+	<div>
+		<h6>KH351 Copyright by Sub-Project</h6>
+	</div>
+</div>
+</form>		
+</body>
+</html>

@@ -18,6 +18,8 @@ $(function() {
 		// 유효성 검사가 false일 때
 		if( !checkInfo() ) {
 			return false
+		} else {
+			login()
 		}
 	})
 	
@@ -182,11 +184,20 @@ function checkInfo() {
 	}
 	
 	return true;
+}
+function login() {
+	document.select
 	
 }
-
 </script>
 <style type="text/css">
+@font-face {
+	font-family: 'NotoSansKR';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
+}
+body { font-family: 'NotoSansKR', sans-serif; }
 #joinWrap {
 	margin: 0 auto;
 	width: 300px;
@@ -287,7 +298,7 @@ input{
 		</span>
 		<span class="errmsg" id="mailmsg"></span>
 	
-		<button id="btnJoin" name="join">Join Us</button>
+		<button id="btnJoin" name="join" >Join Us</button>
 	
 		<div id="siteInfo">
 			<span id="law"><a href="">이용약관</a></span>
