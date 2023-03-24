@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <link rel="icon" href="favicon.ico">
 <title>로그인</title>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('c089c8172def97eb00c07217cae17495'); 
+</script>
 <script type="text/javascript">
 $(function() {
 	
@@ -72,6 +77,36 @@ $(function() {
 	})
 	
 })
+// 카카오 로그인
+Kakao.Auth.setAccessToken('${d7c8ea328b781a5ae39d21fe3dc9123f}');
+
+function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'https://developers.kakao.com/tool/demo/oauth',
+    });
+  }
+
+// 네이버 로그인
+var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
+var state = naver_id_login.getUniqState();
+naver_id_login.setButton("white", 2,40);
+naver_id_login.setDomain("YOUR_SERVICE_URL");
+naver_id_login.setState(state);
+naver_id_login.setPopup();
+naver_id_login.init_naver_id_login();
+
+var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
+// 접근 토큰 값 출력
+alert(naver_id_login.oauthParams.access_token);
+// 네이버 사용자 프로필 조회
+naver_id_login.get_naver_userprofile("naverSignInCallback()");
+// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+function naverSignInCallback() {
+  alert(naver_id_login.getProfileData('email'));
+  alert(naver_id_login.getProfileData('nickname'));
+  alert(naver_id_login.getProfileData('age'));
+}
+
 </script>
 <style type="text/css">
 @font-face {
@@ -175,6 +210,29 @@ a{
 #pwmsg{
 	margin-bottom: 20px;
 }
+#kakao-login-btn {
+	position: relative;
+	top: 5px;
+	right: 5px;
+	width: 150px;
+	height: 50px;
+	display: block;
+}
+#logo{
+	position: absolute;
+}
+#naver_id_login {
+	position: relative;
+	width: 295px;
+	height: 50px;
+}
+#logo2{
+	position: absolute;
+	top: -44px;
+	right: 0px;
+	width: 140px;
+	height: 45px;
+}
 </style>
 </head>
 <body>
@@ -208,7 +266,15 @@ a{
 	
 	<button id="btnLog">Log in</button>
 </form>
-
+	
+	<a id="kakao-login-btn" href="javascript:loginWithKakao()">
+	 	<img id="logo" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="140" height="45" alt="카카오 로그인 버튼" />
+	</a>
+	
+	 <div id="naver_id_login">
+	 	<img id="logo2" src="../kh/resources/img/naver.png" width="100%">
+	 </div>
+	
 	<div id="siteInfo">
 		<span id="law"><a href="">이용약관</a></span>
 		<span id="plaw"><a href="">개인정보처리방침</a></span>
