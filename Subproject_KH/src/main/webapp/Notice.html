@@ -128,7 +128,7 @@ main {
 }
 #main_center{
 	width: 740px;
-	height: 1200px;
+	height: 1600px;
 	position: absolute;
     left: 227px;
     top: 0px;
@@ -158,7 +158,7 @@ main {
 	vertical-align: inherit;
 }
 .notice_tr > td, th {
-	padding: 0;
+	padding: 8px;
 }
 #notice_table{
 	background-color: #eee;
@@ -178,6 +178,41 @@ main {
 .column_5 {
 	width: 80px;
 	border-right: 1px solid #ccc;
+}
+#writeBtn {
+	position: absolute;
+	right: 20px;
+	width: 70px;
+	height: 30px;
+}
+#searchTab{
+	margin: 0 auto;
+}
+.searchBtnBB {
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	font-size: 24px;
+}
+#toBegin, #toEnd, #toPrev, #toNext {
+	width: 80px;
+}
+#searchB {
+	height: 110px;
+}
+#searchBottom {
+	width: 200px;
+	height: 30px;
+	position: absolute;
+}
+#searchBtnB {
+	width: 45px;
+	height: 36px;
+}
+#searchBBB{
+	position: absolute;
+	left: 244px;
+	
 }
 </style>
 
@@ -480,7 +515,33 @@ main {
 		</table>	
 	</div>
 
-
+	<div id = "searchB">
+		<br>
+		<button id="writeBtn">글쓰기</button>
+		<br>
+		<br>
+		<table id="searchTab">
+			<tr>
+				<td><button id="toBegin" class="searchBtnBB">&lt;&lt;</button></td>
+				<td><button id="toPrev" class="searchBtnBB">prev</button></td>
+				<td><button class="searchBtnBB">&lt;</button></td>
+				<td><button class="searchBtnBB">1</button></td>
+				<td><button class="searchBtnBB">2</button></td>
+				<td><button class="searchBtnBB">3</button></td>
+				<td><button class="searchBtnBB">4</button></td>
+				<td><button class="searchBtnBB">&gt;</button></td>
+				<td><button id="toNext" class="searchBtnBB">next</button></td>
+				<td><button id="toEnd" class="searchBtnBB">&gt;&gt;</button></td>
+			</tr>
+		</table>
+	</div>
+	<br>
+	<div style="text-align: center;">
+		<div id="searchBBB">
+			<button id="searchBtnB">검색</button>
+			<label for="searchBottom"><input type="text" id="searchBottom" class="search"></label>
+		</div>
+	</div>
 </div>
 <br>
 <div id="left3">
