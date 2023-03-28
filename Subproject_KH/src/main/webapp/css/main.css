@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'NotoSansKR', sans-serif;
+}
+
+.group_margin .logo{
+	height: 50%;
+	text-align: center;
+	
+}
+.custom_ul{
+	list-style-type: none;	
+}
+a{
+	text-decoration-line: none;
+}
+.custom_li{
+	display: inline-block;
+}
+.li_list{
+	padding: 10px;
+	
+}
+.logoarea{
+	position: relative;
+	height: 180px;
+}
+.logoarea .service_area{
+	position: absolute;
+	top: 12px;
+	right: 15px;
+}
+.group_margin{
+	width: 800px; 
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	
+}
+.logo{
+	position: absolute;
+	top: 40%;
+	right: 45%;
+}
+.menu{
+	
+	width: 100%;
+	height: 70px;
+	background-color: #ccc;
+}
+.menu_area{
+	/* margin-right: 200px; */
+	/*margin-left: 200px;  */
+	height: 100%; 
+}
+.menu_area span{
+	display: inline-block;
+	font-size: 25px;
+	width: 225px;
+	height: 100%;
+	text-align: center;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+.main_container{
+	display: grid;
+	width: 1200px;
+	height: 1000px;
+	margin-top: 70px;
+	margin: 0 auto;
+	grid-template-columns: 1fr 1fr 1fr; 
+}
+/* 메인 페이지의 왼쪽 div 블록 */
+.left_block{
+	display: inline-block;
+	width: 300px;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 26px;
+	
+}
+.login_box{
+	width: 100%;
+	height: 170px;
+	
+}
+#login{
+	width: 100%;
+	height: 100%;
+	background-color: #ccc;
+}
+#login div{
+	width: 230px;
+	height: 90px;
+	margin: 0 auto;
+}
+#login_menu{
+	width: 230px;
+	height: 70px;
+	
+}
+#login_bt{
+	width: 100%;
+	height: 50px;
+	border: 0px;
+	border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 40px;
+	background-color: blue;
+	color: white;
+	cursor: pointer;
+}
+.side_block h2{
+	margin-top: 20px;
+}
+.menu_block{
+	width: 100%;
+	height: 250px;
+	border: 1px solid gray;
+	border-radius:  10px 10px 10px 10px / 10px 10px 10px 10px;
+	box-shadow:rgba(0,0,0,0.1) 3px 3px;
+}
+
+.menu_friends{
+	height: 40px;
+	margin-top: 20px;
+	text-align: center;
+}
+.menu_friends span{
+	display: inline-block;
+	width: 130px;	
+	color: white;
+	border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px;
+	background-color: blue;
+	font-size: 0.8em;
+}
+.login_friends_box{
+	width: 100%;
+	height: 150px;
+	border: 10px solid gray;
+	box-sizing: border-box;
+	padding: 10px;
+		
+}
+.id_list{
+	width: 150px;
+}
+.chat_bt{
+	text-align: center;
+	width: 40px;
+	height: 25px;
+	color:white;
+	background-color: blue;
+	border: 0px;
+	border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
+	cursor: pointer;
+}
+
+
+/*     메인 컨테이너의 가운데 부분 블록 */
+.middle_block{
+	display: inline-block;
+	width: 600px;
+	height: 100%;
+	padding: 26px;
+	box-sizing: border-box;
+}
+.sec_middle_box{
+	width:100%;
+	height: 400px;
+}
+.free_board{
+	width: 400px;
+	height: 300px;
+	margin-top : 50px;
+	background-color: #ccc;
+	border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px;
+	position: relative;
+}
+.free_board h2{
+	display: inline-block;
+	height: 50px;
+	padding:10px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+.range{
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+}
+.more_page{
+	display: inline-block;
+	font-size: 0.7em;
+	
+}
+.title{
+	display: inline-block;
+	width:250px;
+	height: 21px;
+	white-space : nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-left: 20px;
+}
+.date{
+	display:inline-block;
+	width: 78px;
+	height: 30px;
+	font-size: 0.7em;
+	padding-left: 30px;
+}
+.board_line{
+	font-size: 0.8em;
+	height: 25px;
+}
+.search{
+	display:-ms-flexbox;
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+	position: absolute;
+	top: 250px;
+	right:81px;
+}
+.search input{
+	height: 25px;
+	width: 230px;
+}
+
+#searchBt{
+	width: 29px;
+	height:29px;
+}
+/* 			메인 컨테이너의 오른쪽 부분 블록 */
+
+.right_block{
+	height: 100%;
+	padding: 26px;
+	box-sizing: border-box;
+}
+.direct{
+	width:200px;
+	height: 300px;
+	background-color: #ccc;
+}
+.menu_line{
+	font-size: 1.2em;
+	margin-left: 30px;
+	padding-top: 15px;
+}
+.menu_img{
+	width:26px;
+	height: 26px;
+}
