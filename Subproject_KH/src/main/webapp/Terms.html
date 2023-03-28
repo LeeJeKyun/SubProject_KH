@@ -2,12 +2,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.ico">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 $(function() {
 	// Jquery Scope
 	
+	// 발송을 누르면 이용약관 chk가 모두 true여야 이동
 	
+	// 취소를 누르면 로그인 창으로 이동
+	$("#btnCancel").on("click", function(e){
+		event.preventDefault();
+		
+		var target = $(e.target);
+		// 이벤트 객체 출력
+		console.log( e )
+		
+		if(target.is('button')) {
+			location.href = 'Login.html'
+		}
+	})
+	
+	$("#btnSend").click(function() {
+		
+		event.preventDefault();
+		
+		if ( $("#chkbox1").is(':checked') == false || $("#chkbox2").is(':checked') == false ) {
+			alert("이용 약관에 동의해주세요!")
+			return false
+		} else {
+			
+			location.href = 'Join.html'
+		}
+		
+		
+	})
 	
 	
 })
@@ -18,7 +47,7 @@ $(function() {
 	font-family: 'NotoSansKR';
 	font-style: normal;
 	font-weight: 400;
-	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
+	src: url(../resources/font/NotoSansKR-Regular.otf);
 }
 body { font-family: 'NotoSansKR', sans-serif; }
 h1{
@@ -28,6 +57,7 @@ h1{
 h3 {
 	text-align: center;
 	margin-top : 5px;
+	margin-bottom: 50px;
 	font-size: 0.8em;
 }
 .termContent{
@@ -42,16 +72,47 @@ h3 {
 }
 .textspace{
 	width: 600px;
-	height: 100px;
+	height: 130px;
 	resize: none;
 	font-family: 'NotoSansKR';
 }
 .wrap{
 	display: block;
-	padding-left: 400px;
+	padding-left: 390px;
 }
 .empty{
 	height: 30px;
+}
+button{
+	width: 100px;
+	height: 40px;
+	background-color: #3999E9;
+	margin-left: 25px;
+	margin-right: 25px;
+	border: none;
+	color: white;
+	font-size: 1.0em;
+	border-radius: 5px;
+	font-family: 'NotoSansKR-Bold';
+	font-weight: bold;
+}
+#btnCancel{
+	left: 30px;
+	background: gray;
+}
+#btnSend{
+	right: 30px;
+}
+#bottom {
+	width: 600px;
+	height: 300px;
+	box-sizing: border-box;
+	padding: 100px 100px;
+	text-align: center;
+}
+textarea {
+	border: 2px solid #ccc;
+	border-radius: 5px;
 }
 </style>
 <title>이용약관</title>
@@ -494,38 +555,20 @@ h3 {
 	</textarea>
 	
 	<span class="wrap">
-		<input type="checkbox" id="chkbox1" name="chkbox1">
+		<input type="checkbox" id="chkbox2" name="chkbox2">
 		<span>이용 약관에 동의합니다.</span>
 	</span>
 	
 	
 	
+	<div id="bottom">
+		<button id="btnCancel" name="cancel" >동의 안 함</button>
+		<button id="btnSend" type="submit" name="send">동의</button>
+	</div>
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	</form>
+</form>	
 </div>
-
-
 </body>
 </html>
