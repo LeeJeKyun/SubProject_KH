@@ -19,6 +19,7 @@ body{
 }
 a{
 	text-decoration-line: none;
+	color: black;
 }
 .custom_li{
 	display: inline-block;
@@ -53,6 +54,8 @@ a{
 	width: 100%;
 	height: 70px;
 	background-color: #ccc;
+	position: sticky;
+	top:0px;
 }
 .menu_area{
 	/* margin-right: 200px; */
