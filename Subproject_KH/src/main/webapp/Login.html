@@ -2,9 +2,302 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" href="favicon.ico">
+<title>로그인</title>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('c089c8172def97eb00c07217cae17495'); 
+</script>
+<script type="text/javascript">
+//카카오 로그인
+Kakao.Auth.setAccessToken('${d7c8ea328b781a5ae39d21fe3dc9123f}');
+
+function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'https://developers.kakao.com/tool/demo/oauth',
+    });
+  }
+$(function() {
+	
+	
+	$("form").submit(function() {
+		
+		if($("#id").val() == '' || $("#pw").val() == '') {
+			alert("아이디 또는 비밀번호를 입력하지 않았습니다.")
+			return false
+		}
+		
+	})
+	
+	$("#nlog").mouseover(function() {
+		$("#nlog").css("cursor","pointer")
+	})
+	
+	$("#btnLog").mouseover(function() {
+		
+		$("#btnLog").css("cursor","pointer")
+	})
+	
+	// id 저장 
+	// local 스토리지 사용
+	$("input[name~='chk']").change(function() {
+	
+		 var $idStr = $("#id").val()
+		 
+		 if( $("input[name~='chk']").is(":checked") == true ) {
+			 localStorage.removeItem("id")
+			 localStorage.setItem( "id", $idStr ) 
+		 }
+	})
+
+
+	$("input[name~='id']").val( localStorage.id )
+	
+	// id 미입력시 에러 문구 출력
+	$("#id").blur(function() {
+		if( $("#id").val() == '' ) {
+			$("#idmsg").html("아이디를 입력해주세요")
+		}
+	})
+	
+	$("#pw").focus(function() {
+		
+		$("#pwmsg").html("")
+		
+		if( $("#id").val() == '' ) {
+			$("#idmsg").html("아이디를 입력해주세요")
+		}
+	})
+	
+	$("#pw").blur(function() {
+	
+		if($("#pw").val() == '') {
+			$("#pwmsg").html("비밀번호를 입력해주세요")
+		}
+		
+	})
+	
+	
+	// 에러 메시지 초기화
+	$("#id").focus(function() {
+		$("#idmsg").html("")
+	})
+	
+	$("#pw").focus(function() {
+		$("#pwmgs").html("")
+	})
+	
+	
+})
+</script>
+<style type="text/css">
+@font-face {
+	font-family: 'NotoSansKR';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
+}
+body { font-family: 'NotoSansKR', sans-serif; }
+#logWrap{
+	margin: 0 auto;
+	width: 300px;
+}
+.content{
+	font-weight: bold;
+	display: block;
+	
+}
+.info{
+	font-size: 0.6em;
+	font-weight: bold;
+}
+.contentWrap{
+	display: block;
+}
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
+	font-weight: bold;
+}
+input{
+	width: 295px;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+.errmsg{
+	display: block;
+	color: red;
+	font-size: 0.8em;
+	margin-bottom: 40px;
+	height: 17px;
+}
+.contentDiv{
+	position: relative;
+}
+#chkbox{
+	width: 15px;
+	height: 15px;
+	margin: 0;
+}
+label{
+	position: absolute;
+	top: 75px;
+	left: 230px;
+	font-size: 0.8em;
+}
+a{
+	text-decoration: underline;
+	color: blue;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.link{
+	margin-bottom: 20px;
+	text-align: center;
+}
+#btnLog{
+	width: 295px;
+	height: 40px;
+	background-color: #3999E9;
+	border: none;
+	color: white;
+	font-weight: bold;
+	font-size: 1.0em;
+	border-radius: 5px;
+}
+#siteInfo{
+	position: relative;
+	height: 75px;
+}
+#bottom{
+	text-align: center;
+}
+#law{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 75px;
+	left: 50px;
+}
+#plaw{
+	font-size: 0.9em;
+	text-decoration: underline;
+	color: #118FF9;
+	position: absolute;
+	top: 75px;
+	left: 140px;
+}
+#pwmsg{
+	margin-bottom: 20px;
+}
+#kakao-login-btn {
+	position: relative;
+	top: 5px;
+	right: 5px;
+	width: 150px;
+	height: 50px;
+	display: block;
+}
+#logo{
+	position: absolute;
+	width: 140px;
+	height: 40px;
+}
+.loginWrap{
+	position: relative;
+}
+#naver_id_login {
+	display: none;
+}
+#nlogpng{
+	width: 150px;
+	height: 40px;
+	object-fit: cover;
+	position: absolute;
+	top: -45px;
+	left: 145px;
+}
+#nlog{
+	width: 1px;
+	height: 1px;
+	position: relative;
+}
+</style>
 </head>
 <body>
+<div id="logWrap">
+
+	<h1>KH 커뮤니티</h1>
+	<form action="" method="get">
+	<div class="contentDiv">
+	
+<!-- 	id 입력창 -->
+		<span class="content">아이디</span>
+		<span class="contentWrap">
+			<input type="text" id="id" name="id">
+		</span>
+		<label for='chkbox'><input type="checkbox" id="chkbox" name="chk">   id 저장</label>
+		<span class="errmsg" id="idmsg"></span>
+	</div>
+	
+<!-- 	비밀번호 입력창 -->
+	<span class="content">비밀번호</span>
+	<span class="contentWrap">
+		<input type="password" id="pw" name="pw"> 
+	</span>
+	<span class="errmsg" id="pwmsg"></span>
+
+	<div class="link">
+		<span><a href="FindId.html">아이디 찾기</a></span>
+		<span><a href="">비밀번호 찾기</a></span>
+		<span><a href="Join.html">회원가입</a></span>
+	</div>
+	
+	<button id="btnLog">Log in</button>
+</form>
+	<div class="loginWrap">
+	<a id="kakao-login-btn" href="javascript:loginWithKakao()">
+	 	<img id="logo" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="140" height="45" alt="카카오 로그인 버튼" />
+	</a>
+	
+		
+		<div id="naver_id_login"></div>
+		<div id="nlog">
+			<img src="../kh/resources/img/naver.png" id="nlogpng">
+		</div>
+		<script type="text/javascript">
+		
+		//네이버
+		var naver_id_login = new naver_id_login("pwpQROW2QV60sm5jVYCL", "http://localhost:8088/kh/callback.html");
+		var state = naver_id_login.getUniqState();
+		naver_id_login.setButton("green", 4,40);
+		naver_id_login.setDomain("http://localhost:8088/kh/Login.html");
+		naver_id_login.setState(state);
+		naver_id_login.setPopup();
+		naver_id_login.init_naver_id_login();
+		
+		$("#nlogpng").on("click", function() {
+			var btnNaverLog = $("#naver_id_login").children();
+			btnNaverLog.click();
+		})
+		
+		</script>
+	</div>
+	<div id="siteInfo">
+		<span id="law"><a href="">이용약관</a></span>
+		<span id="plaw"><a href="">개인정보처리방침</a></span>
+	</div>
+		
+	<div id="bottom">
+		<h6>KH351 Copyright by Sub-Project</h6>
+	</div>
+</div>
+
+
 
 </body>
 </html>
