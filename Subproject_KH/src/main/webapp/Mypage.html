@@ -3,8 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+body { font-family: 'NotoSansKR', sans-serif; }
+#header{
+  text-align: center;
+ }
+.topNav{
+	padding-top:100px;
+    margin: 10px auto;
+
+}
+
+#mypageup{
+	padding-left: 0;
+	margin-top: 50px;
+
+}
+#mypageup li{
+		list-style: none;
+		background-color: #FFFFFF;
+}
+#mypage{
+		border: 1px solid #ccc;
+		margin: 0 auto;
+		text-decoration : none;
+		height: 30px;
+		width: 250px;
+		margin-top: 15px;
+		padding: 3px;
+		vertical-align: middle;
+		line-height: 30px;
+}
+
+#mypagebg{
+	background-color: #B8B1A7;
+	width:	350px;
+	height: 550px;
+	margin: 0 auto;
+}
+
+#mypages{
+    float: left;
+    width: 640px;
+	height: 500px;
+	padding-left: 200px;
+	text-align: center;
+	position:absolute;
+	
+}
+
+.profile_img{
+
+	width:100px;
+	height: 100px;
+	border-radius: 70%;
+}
+
+.click_img{
+	width:75px;
+	height: 75px;
+}
+
+a { text-decoration:none;
+ 	color: inherit;
+ 	display: block;
+}
+.switch-button {
+        position: relative;
+        display: inline-block;
+        width: 55px;
+        height: 30px;
+    }
+
+    .switch-button input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .onoff-switch {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius:20px;
+        background-color: #ccc;
+        box-shadow: inset 1px 5px 1px #999;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .onoff-switch:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 4px;
+        bottom: 4px;
+        background-color: #fff;
+        -webkit-transition: .5s;
+        transition: .4s;
+        border-radius:20px;
+    }
+
+    .switch-button input:checked + .onoff-switch {
+        background-color: #6CB7D6;
+        box-shadow: inset 1px 5px 1px #4E90C4;
+    }
+
+    .switch-button input:checked + .onoff-switch:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+.button{
+	width: 140px;
+	height: 140px;
+	border-radius: 20%;
+	background-color: #4E90C4;
+}
+#Button01{
+	float: left;
+}
+#Button02{
+	float: right;
+}
+p{color: #FFFFFF;
+  font-weight: bold;
+  font-size: 14pt;
+}
+</style>
 </head>
 <body>
+<div ID="all" style="width: 1920px;" align="center">
+<div ID="header">
+<header>
+  <h1 ID="header2">KH정보교육원</h1>
+</header>
+</div>
+<div>
+<div class="topNav">
+	<div ID="mypages">
+		<div ID = "mypagebg">
+			<h2 class="myPage" ID = "mypageti"><a href=" " title="개인정보 관리"><span><br>개인정보 관리</span></a></h2>
+			<ul class="myPage" ID="mypageup">
+				<li class="myPage1" ID="mypage"><a href=" " title="개인정보 변경"><span>개인정보 변경</span></a></li>
+				<li class="myPage2" ID="mypage"><a href=" " title="ID 변경"><span>ID 변경</span></a></li>
+				<li class="myPage3" ID="mypage"><a href=" " title="비밀번호 변경"><span>비밀번호 변경</span></a></li>
+				<li class="myPage4" ID="mypage"><a href=" " title="수신 설정"><span>수신 설정</span></a></li>
+				<li class="myPage5" ID="mypage"><a href=" " target="_blank" title="외부계정연동"><span>외부계정연동</span></a></li><br><br>
+				<li class="myPage6" ID="mypage" style ="background-color: red; font-size: 20pt; height: 70px; line-height: 70px; color: #FFFFFF;"><a href="" title="회원탈퇴" ><span>회원탈퇴</span></a></li>
+				
+			</ul>
+		</div>
+		</div>
+		<div style ="float: left; padding-left: 780px; margin-top: 20px;">
+			<div ID = "mypagebg">
+				<div ID ="setting">
+				<br>
+					<img src="../webapp/imgs/img.jpg" class="profile_img">
+					<form>
+					<input type="text" value="닉네임 변경" style = "text-align: center;">
+					<br><br>
+					<textarea name="MSG" rows="3" cols="40">상태메세지를 입력해주세요.</textarea><br>
+					<div style="padding-left: 24px; padding-top: 10px; float: left;" >
+					<input type="text" style="background-color: #FFFFFF; width: 245px; height: 30px; text-align: center;" value="해외 아이피 차단" name="val" disabled/>
+					</div>
+					<div style="padding-top: 13px;">
+					<label class="switch-button">
+					<input type="checkbox"/>
+				    <span class="onoff-switch"></span>
+					</label>
+					</div>
+					<div style="padding-top: 20px;">
+					<select style= "width: 300px; height: 40px;">
+					    <option>첫번째 선택항목</option>
+   						<option>두번째 선택항목</option>
+    					<option>세번째 선택항목</option>
+					</select>
+					</div>
+					<div style= "padding-top: 25px;">
+					<input type="text" style="background-color: #FFFFFF; width: 293px; height: 30px; text-align: center;" value="접속기기관리" name="val" disabled/>
+					</div>
+					<div style= "padding-top: 15px;">
+					<textarea rows="20" cols="40" style="overflow:auto; height: 120px; "></textarea>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div style="float: right; padding-right: 350px; margin-top: 20px;">
+			<div ID = "mypagebg">
+				<div ID = "button"><br><br>
+					<div style = "padding-left: 25px; cursor: pointer;" onclick="location.href=''">
+					<div class="button" ID="Button01">
+					<p>작성한 글</p>
+					<img src="../webapp/imgs/list_ingredients-512_.png" class="click_img">
+					</div>
+					</div>
+				</div>
+
+				<div ID = "button">
+					<div style = "padding-right: 25px; cursor: pointer;" onclick="location.href=''">
+					<div class="button" ID="Button02">
+					<p>고객센터</p>
+					<img src="../webapp/imgs/headset-512.png" class="click_img">
+					</div>
+					</div>
+				</div>
+		
+				<div ID = "button" style= "margin-top: 170px; cursor: pointer;" onclick="location.href=''" >
+					<div style = "padding-left: 25px;">
+					<div class="button" ID="Button01">
+					<p>로그인 이력</p>
+					<img src="../webapp/imgs/key-51=2.png" class="click_img">
+					</div>
+					</div>
+				</div>
+				<div ID = "button" style= "margin-top: 170px; cursor: pointer;" onclick="location.href=''">
+					<div style = "padding-right: 25px;">
+					<div class="button" ID="Button02">
+					<p>도움말</p>
+					<img src="../webapp/imgs/question_shield-512.png" class="click_img">
+					</div>
+					</div>
+				</div>
+				<div ID = "button" style= "margin-top: 340px; cursor: pointer;" onclick="location.href=''">
+					<div style = "padding-left: 25px;">
+					<div class="button" ID="Button01">
+					<p>2차 보안관리</p>
+					<img src="../webapp/imgs/user_shield-512.png" class="click_img">
+					</div>
+					</div>
+				</div>
+				<div ID = "button" style= "margin-top: 340px; cursor: pointer;" onclick="location.href=''">
+					<div style = "padding-right: 25px;">
+					<div class="button" ID="Button02">
+					<p>즐겨찾기</p>
+					<img src="../webapp/imgs/outline_star-512.png" class="click_img">
+					</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		</div>
+</div>
+</div>
 
 </body>
 </html>
