@@ -12,7 +12,7 @@ $(function() {
 	
 	// 취소를 누르면 로그인 창으로 이동
 	$("#btnCancel").on("click", function(e){
-		event.preventDefault();
+		e.preventDefault();
 		
 		var target = $(e.target);
 		// 이벤트 객체 출력
@@ -23,9 +23,11 @@ $(function() {
 		}
 	})
 	
-	$("#btnSend").click(function() {
+	$("#btnSend").click(function(e) {
 		
-		event.preventDefault();
+		e.preventDefault();
+		
+		console.log(e)
 		
 		if ( $("#chkbox1").is(':checked') == false || $("#chkbox2").is(':checked') == false ) {
 			alert("이용 약관에 동의해주세요!")
@@ -47,7 +49,7 @@ $(function() {
 	font-family: 'NotoSansKR';
 	font-style: normal;
 	font-weight: 400;
-	src: url(../resources/font/NotoSansKR-Regular.otf);
+	src: url(../kh/resources/font/NotoSansKR-Regular.otf);
 }
 body { font-family: 'NotoSansKR', sans-serif; }
 h1{
