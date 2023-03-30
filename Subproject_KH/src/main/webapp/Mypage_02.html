@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js">
+</script>
+
+<script type="text/javascript">
+$(function () {
+	$("form").submit(function () {
+// 		alert("form submitted")
+// 		return(이벤트 처리는 중단) submit작동
+// 		return false
+		//	return false(이벤트 처리는 중단) submit도 중단
+		if(!validate()){
+			console.log("submit 중단")
+// 			alert(1)
+			return false
+		}
+// 		console.log("submit 진행")
+// 		alert(2)
+// 		$(this).submit()
+	})
+	$("#uid").focus(function () {
+		$("#uid_msg").html("")
+	})
+	$("#upw").focus(function () {
+		$("#upw_msg").html("")
+	})
+	$("#upw_check").focus(function () {
+		$("#upwck_msg").html("")
+	})
+
+})
+
+function validate() {
+	if($("#uid").val()==''){
+		
+		$("#uid_msg").html("아이디를 입력해주세요!")
+		
+		return false
+		
+	}
+	///^[a-zA-Z][a-zA-Z0-9]{3,11}$/ 이것만 따로 변수로 지정가능
+	if(!/^[a-zA-Z][a-zA-Z0-9]{3,11}$/.test($("#uid").val())){
+		$("#uid_msg").html("아이디는 4~12자리의 영문자, 숫자만 사용가능합니다.")
+		
+		return false
+	}
+	
+	if($("#upw").val()==''){
+		
+		$("#upw_msg").html("비밀번호를 입력해주세요!")
+		
+		return false
+		
+	}
+	
+	var pwReg = /^[a-zA-z0-9!@#$%^&*-_=+]{8,20}$/
+// 	var pwReg = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*_\-+=])(?=.*?[a-zA-z0-9!@#$%^&*-_=+]){8,20}$/
+	if(!pwReg.test($("#upw").val())){
+		$("#upw_msg").html("비밀번호는 8~20자리의 숫자와 특수기호만 사용가능합니다.")
+			
+		return false
+	}	
+	
+	
+	if($("#upw_check").val()==''){
+		
+		$("#upwck_msg").html("비밀번호확인을 입력해주세요!")
+		
+		return false
+		
+	}
+	if(!($("#upw_check").val()==$("#upw").val())){
+		
+		$("#upwck_msg").html("비밀번호가 다릅니다.")
+		
+		return false
+		
+	}
+	alert("계정이 생성되었습니다.")
+	return true
+
+	
+}
+
+$(".hover").mouseleave(
+  function() {
+    $(this).removeClass("hover");
+  }
+);
+
+</script>
+<style type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+.snip1535 {
+  background-color: #4E90C4;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.snip1535:before,
+.snip1535:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+.snip1535:before {
+  border-color: #4E90C4;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  right: -5px;
+  top: -5px;
+}
+.snip1535:after {
+  border-bottom-width: 2px;
+  border-color: #4E90C4;
+  border-left-width: 2px;
+  bottom: -5px;
+  left: -5px;
+}
+.snip1535:hover,
+.snip1535.hover {
+  background-color: #4E90C4;
+}
+.snip1535:hover:before,
+.snip1535.hover:before,
+.snip1535:hover:after,
+.snip1535.hover:after {
+  height: 100%;
+  width: 100%;
+}
+
+#Wrap{
+	width: 1920px;
+	align-content: center;
+}
+#header{
+	text-align: center;
+}
+#buttons{
+	float: left;
+	padding-left: 50px;
+	border-right:1px solid black;
+	width: 500px;
+	height: 830px;
+	align-items: center;
+}
+#button_insides{
+		padding-left: 140px;
+		padding-top: 20px;
+		width: 300px;
+	
+}
+.snip1535{
+	width: 270px;
+	height: 130px;
+}
+#pw_change{
+	float: right;
+	width: 1250px;
+	height: 800px;
+	align-items: center;
+}
+#pw_changein{
+	padding-top: 200px;
+	
+}
+.templet{
+	font-size: 20pt;
+}
+.msg{
+	color: red;
+	font-size:8pt;
+	margin-left: 250px;
+}
+#label_ID{	
+ 	padding-right: 97px;
+}
+#label_pw{	
+ 	padding-right: 71px;
+}
+#label_pwck{	
+ 	padding-right: 10px;
+}
+#submit{
+	margin-left: 250px;
+}
+#uid,#upw,#upw_check{
+	width:700px;
+}
+
+</style>
+</head>
+<body>
+<div ID="Wrap">
+	<div ID="header">
+		<header>
+			<h1>KH정보교육원</h1>
+		</header>
+	</div>
+	<form>
+	<div ID="buttons">
+		<div ID="button_insides">
+		
+			<span><button class="snip1535" ID="info_ch" >개인정보변경</button></span>
+			<span><button class="snip1535" ID="ID_ch">아이디 변경</button></span>
+			<span><button class="snip1535" ID="pass_ch">비밀번호 변경</button></span>
+			<span><button class="snip1535" ID="message_ch">수신설정</button></span>
+			<span><button class="snip1535" ID="another_ch">외부계정 설정</button></span>
+		</div>
+	</div>
+	</form>
+	<div ID="pw_change">
+		<div ID="pw_changein">
+			<form action="" method="get">
+			
+			<label for="uid" ID="label_ID" class="templet">현재 아이디</label>
+			<input type="text" id ="uid" name="uid"class="templet"><br>
+			<span id="uid_msg" class="msg"></span><br>
+			<br>
+			<label for="upw" ID="label_pw" class="templet">패스워드 변경</label>
+			<input type="text" id ="upw" name="upw" class="templet"><br>
+			<span id="upw_msg" class="msg"></span><br>
+			<br>
+			<label for="upw_check" ID="label_pwck" class="templet">패스워드 변경 확인</label>
+			<input type="text" id ="upw_check" class="templet"><br>
+			<span id="upwck_msg" class="msg"></span><br><br>
+			<br><br><br><br><br>><br><br><br>
+			
+			<span ID="submit"><button class="snip1535" style="width:400px; height: 100px; ">변경하기</button></span>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
