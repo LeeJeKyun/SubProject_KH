@@ -26,17 +26,16 @@ public class MemberServiceImpl implements MemberService{
 		// insert 
 		int rgit = memberDao.insertMember(conn, newbie);
 		
-		// insert 성공 시 commit, 실패 시 rollback;
 		if ( rgit > 0 ) {
-//			conn.commit();
+			JDBCTemplate.commit(conn);
 		} else {
-//			conn.rollback();
+			JDBCTemplate.rollback(conn);
 		}
 		
 		Member result = new Member();
 		
 		
-		return result;
+		return result=memberDao.insertResult(conn, idnum);
 	}
 
 }

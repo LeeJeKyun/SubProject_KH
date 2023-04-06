@@ -48,7 +48,7 @@ public class MemberDaoImpl implements MemberDao{
 		
 		// SQL 구문 작성
 		String sql = "";
-		sql += "INSERT INTO member ( id, pw, mail, idnum )";
+		sql += "INSERT INTO member ( id, pw, email, idnum )";
 		sql += " VALUES ( ?, ?, ?, ? )";
 		
 		
@@ -73,8 +73,55 @@ public class MemberDaoImpl implements MemberDao{
 		} finally {
 			JDBCTemplate.close(ps);
 		}
-		
+		System.out.println("insertMember 단계 테스트");
 		return result;
 	}
 
+	@Override
+	public Member insertResult(Connection conn, int idnum) {
+		
+		//SQL 구문
+		String sql = "";
+		sql += "SELECT id, pw, email, idnum FROM MEMBER";
+		sql += " WHERE idnum = ?";
+		
+		// 저장 객체 생성
+		Member member = new Member();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, idnum);
+			
+			rs = ps.executeQuery();
+			
+			while ( rs.next() ) {
+				
+				member.setId(rs.getString("id"));
+				member.setPw(rs.getString("pw"));
+				member.setEmail(rs.getString("email"));
+				member.setIdnum(rs.getInt("idnum"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		System.out.println(member.getId() + "등록된 ID 확인 테스트");
+		return member;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

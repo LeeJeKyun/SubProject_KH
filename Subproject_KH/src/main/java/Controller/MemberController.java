@@ -44,7 +44,9 @@ public class MemberController extends HttpServlet {
 		
 		Member result = memberService.regit(newbie);
 		
+		req.setAttribute("newbie", result);
 		
+		req.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(req, resp);
 		
 	
 	}
