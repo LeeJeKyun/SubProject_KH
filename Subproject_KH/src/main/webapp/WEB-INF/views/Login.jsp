@@ -234,7 +234,7 @@ a{
 <div id="logWrap">
 
 	<h1>KH 커뮤니티</h1>
-	<form action="/Login" method="get">
+	<form action="/kh/Login" method="post">
 	<div class="contentDiv">
 	
 <!-- 	id 입력창 -->
@@ -249,18 +249,18 @@ a{
 <!-- 	비밀번호 입력창 -->
 	<span class="content">비밀번호</span>
 	<span class="contentWrap">
-		<input type="password" id="pw" name="pw"> 
+		<input type="text" id="pw" name="pw"> 
 	</span>
 	<span class="errmsg" id="pwmsg"></span>
 
 	<div class="link">
 		<span><a href="FindId.html">아이디 찾기</a></span>
 		<span><a href="">비밀번호 찾기</a></span>
-		<span><a href="Join.html">회원가입</a></span>
+		<span><a href="./member/join">회원가입</a></span>
 	</div>
 	
 	<button id="btnLog">Log in</button>
-</form>
+	</form>
 	<div class="loginWrap">
 	<a id="kakao-login-btn" href="javascript:loginWithKakao()">
 	 	<img id="logo" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="140" height="45" alt="카카오 로그인 버튼" />
@@ -274,10 +274,10 @@ a{
 		<script type="text/javascript">
 		
 		//네이버
-		var naver_id_login = new naver_id_login("pwpQROW2QV60sm5jVYCL", "http://localhost:8088/kh/callback.html");
+		var naver_id_login = new naver_id_login("pwpQROW2QV60sm5jVYCL", "http://localhost:8088/kh/callback");
 		var state = naver_id_login.getUniqState();
 		naver_id_login.setButton("green", 4,40);
-		naver_id_login.setDomain("http://localhost:8088/kh/Login.html");
+		naver_id_login.setDomain("http://localhost:8088/kh/Login");
 		naver_id_login.setState(state);
 		naver_id_login.setPopup();
 		naver_id_login.init_naver_id_login();

@@ -30,4 +30,14 @@ public interface MemberDao {
 	 */
 	public Member insertResult(Connection conn, int idnum);
 
+	/**
+	 * 로그인 시도 중인 회원정보를 
+	 * DB에서 검색해 ID,PW를 확인한다
+	 * 
+	 * @param conn - DB 연결 객체
+	 * @param user - 로그인 시도 중인 회원 정보
+	 * @return - DB에 있는 회원 정보
+	 */
+	public Member selectUser(Connection conn, Member user);
+
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-  var naver_id_login = new naver_id_login("pwpQROW2QV60sm5jVYCL", "http://localhost:8088/kh/callback.html");
+  var naver_id_login = new naver_id_login("pwpQROW2QV60sm5jVYCL", "http://localhost:8088/kh/callback");
   // 접근 토큰 값 출력
   alert(naver_id_login.oauthParams.access_token);
   

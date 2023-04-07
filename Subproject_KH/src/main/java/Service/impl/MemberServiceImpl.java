@@ -38,4 +38,14 @@ public class MemberServiceImpl implements MemberService{
 		return result=memberDao.insertResult(conn, idnum);
 	}
 
+	@Override
+	public Member checkUser(Member user) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Member userchk = memberDao.selectUser(conn, user);
+		
+		return userchk;
+	}
+
 }

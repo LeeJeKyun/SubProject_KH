@@ -114,11 +114,56 @@ public class MemberDaoImpl implements MemberDao{
 		return member;
 	}
 
-	
-	
-	
-	
-	
+	@Override
+	public Member selectUser(Connection conn, Member user) {
+		
+		//SQL 구문
+		String sql = "";
+		sql += "SELECT id, pw FROM MEMBER";
+		sql += " WHERE id = ? and pw = ?";
+		
+		// 저장 객체
+		Member userchk = null;
+		
+		System.out.println("로그인 할 정보" + user);
+		
+//		System.out.println( user.getId() );
+		
+//		ResultSet rss = null;
+		
+		// SQL 수행 객체
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, user.getId());
+			ps.setString(2, user.getPw());
+			
+			rs = ps.executeQuery();
+			
+			System.out.println(userchk + "저기저기");
+			
+			while(rs.next()) {
+				
+				userchk = new Member();
+				
+				userchk.setId(rs.getString("id"));
+				userchk.setPw(rs.getString("pw"));
+		
+				System.out.println(userchk.getId());
+				System.out.println(userchk.getPw());
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		System.out.println("MemberServiceIMpl에서 마지막 = " + userchk  );
+		
+		return userchk;
+	}
+
 	
 	
 	
